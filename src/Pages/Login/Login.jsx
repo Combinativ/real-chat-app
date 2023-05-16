@@ -1,10 +1,11 @@
-import { signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithRedirect, signInWithPopup } from "firebase/auth";
 import React, { useRef, useEffect, useState } from "react";
 import { auth, provider } from "../../firebase";
 import { Layout } from "../../components/Layout";
 const Login = () => {
+  console.log("Auth vals: ", auth, provider);
   const login = async () => {
-    signInWithRedirect(auth, provider).catch((er) => alert(er));
+    signInWithPopup(auth, provider).catch((er) => alert(er));
   };
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
